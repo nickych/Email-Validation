@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Vaidation@Chibz</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Unicons CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+  </head>
+  <body>
+    <div class="input-field">
+      <input type="email" placeholder="Enter your email" spellcheck="false"/>
+      <i class="uil uil-envelope email-icon"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      const input = document.querySelector("input"),
+            emailIcon = document.querySelector(".email-icon")
+
+            input.addEventListener("keyup", () =>{
+              let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+              if(input.value === ""){
+                emailIcon.classList.replace("uil-check-circle", "uil-envelope");
+                return emailIcon.style.color = "#b4b4b4";
+              }
+              if(input.value.match(pattern)){
+                emailIcon.classList.replace("uil-envelope", "uil-check-circle");
+                return emailIcon.style.color = "#4bb543"
+              }
+              emailIcon.classList.replace("uil-check-circle", "uil-envelope");
+              emailIcon.style.color = "#de0611"
+            })
+    </script>
+  </body>
+</html>
